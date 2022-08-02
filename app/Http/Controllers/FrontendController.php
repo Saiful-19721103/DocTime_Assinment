@@ -13,5 +13,12 @@ class FrontendController extends Controller
     {
         return view('frontend.home');
     }
+    /**
+     * Show Login Page
+     */
+    public function showLoginpage()
+    {
+        return view('frontend.login');
+    }
     
 }
