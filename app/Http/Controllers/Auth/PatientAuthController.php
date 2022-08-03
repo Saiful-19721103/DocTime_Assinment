@@ -15,6 +15,7 @@ class PatientAuthController extends Controller
     public function register(Request $request)
     {
         //return $request->all();
+
         //Data validate
         $this->validate($request, [
             'name'      =>'required',
@@ -32,5 +33,6 @@ class PatientAuthController extends Controller
             'password'  =>$request->pass,
         ]);
         return redirect()->route('patient.reg.page')->with('success', 'Patient account created');
+        
     }
 }
