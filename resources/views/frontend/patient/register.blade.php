@@ -20,7 +20,7 @@
 										</div>
 										
 										<!-- Register Form -->
-										<form action="" method="POST">
+										<form action="{{route('patient.register')}}" method="POST">
 											@csrf
 
 											<div class="form-group form-focus">
