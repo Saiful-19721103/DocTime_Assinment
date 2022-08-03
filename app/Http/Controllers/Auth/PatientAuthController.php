@@ -26,13 +26,13 @@ class PatientAuthController extends Controller
         ]);
 
         //data store
-        Patient::create([
+        $patient = Patient::create([
             'name'      =>$request->name,
             'email'     =>$request->email,
             'mobile'    =>$request->mobile,
             'password'  =>password_hash($request->pass, PASSWORD_DEFAULT),
         ]);
-        return redirect()->route('patient.reg.page')->with('success', 'Patient account created');
+        return redirect()->route('patient.reg.page')->with('success', "Hi". $patient->name .", Your account is ready.  Now Login");
         
     }
 }
