@@ -16,7 +16,7 @@
 									</div>
 									<div class="col-md-12 col-lg-6 login-right">
 										<div class="login-header">
-											<h3>Login <span>Doccure</span></h3>
+											<h3>Login <span>DocTime</span></h3>
 										</div>
 										<form action="https://dreamguys.co.in/demo/doccure/index.html">
 											<div class="form-group form-focus">
