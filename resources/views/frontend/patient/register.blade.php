@@ -18,6 +18,8 @@
 										<div class="login-header">
 											<h3>Patient Register <a href="{{route('doctor.reg.page')}}">Are you a Doctor?</a></h3>
 										</div>
+
+										@included('validate')
 										
 										<!-- Register Form -->
 										<form action="{{route('patient.register')}}" method="POST">
