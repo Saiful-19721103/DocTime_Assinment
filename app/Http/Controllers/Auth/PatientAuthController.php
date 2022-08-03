@@ -30,7 +30,7 @@ class PatientAuthController extends Controller
             'name'      =>$request->name,
             'email'     =>$request->email,
             'mobile'    =>$request->mobile,
-            'password'  =>$request->pass,
+            'password'  =>password_hash($request->pass, PASSWORD_DEFAULT),
         ]);
         return redirect()->route('patient.reg.page')->with('success', 'Patient account created');
         
