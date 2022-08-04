@@ -11,7 +11,7 @@ Route::get('/login', [ FrontendController::class, 'showLoginPage'])->name('login
 
 //Frontend Controller[ For Patient Register and dashboard Page]
 Route::get('/patient-register', [ FrontendController::class, 'showPatientRegisterPage'])->name('patient.reg.page');
-Route::get('/patient-dashboard', [ FrontendController::class, 'showPatientDashboardPage'])->name('patient.dash.page');
+Route::get('/patient-dashboard', [ FrontendController::class, 'showPatientDashboardPage'])->name('patient.dash.page')->middleware('patient');
 
 //Patient Auth Controller[ For Patient Register Page]
 Route::post('/patient-register', [ PatientAuthController::class, 'register'])->name('patient.register');
