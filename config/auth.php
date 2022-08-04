@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Patient;
+
 return [
 
     /*
@@ -40,6 +42,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patients',
+            ],
     ],
 
     /*
@@ -64,7 +71,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        
+        'patients' => [
+            'driver' => 'eloquent',
+            'model' => Patient::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

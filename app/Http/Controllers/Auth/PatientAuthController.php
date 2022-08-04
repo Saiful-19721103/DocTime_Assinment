@@ -52,7 +52,7 @@ class PatientAuthController extends Controller
 
         ]);
 
-        return $request->all();
+        //return $request->all();
 
         
     }
