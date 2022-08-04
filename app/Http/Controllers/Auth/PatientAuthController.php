@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Unique;
 
 class PatientAuthController extends Controller
@@ -47,12 +48,26 @@ class PatientAuthController extends Controller
         //Data validate
         $this->validate($request, [
             'email'     =>'required',
-            'mobile'    =>'',
             'password'  =>'required',
 
         ]);
 
-        //return $request->all();
+        //return $request->all(); for check//
+
+    //Auth Process(configuration)
+    //if(Auth::guard('patient')->attempt([ "email" => $request->email,"password"=>$request->password])){   
+        //echo "You are Log In";
+    //}else{
+        //echo "You are Failed";
+    //}
+    
+    //Login in Authentication and Authorization by email and mobile.
+    if(Auth::guard('patient')->attempt([ "email" => $request->email,"password"=>$request->password]) || Auth::guard('patient')->attempt([ "mobile" => $request->email,"password"=>$request->password]) )
+    {   
+    return redirect()->route('patient.dash.page');
+    }else{
+    return redirect()->route('login.page')->with('danger', 'Authentication Failed');
+    }
 
         
     }
