@@ -69,7 +69,14 @@ class PatientAuthController extends Controller
     return redirect()->route('login.page')->with('danger', 'Authentication Failed');
     }
 
-        
     }
-    
+
+    /**
+     * Patient LogOut Methode
+     */
+    public function logout()
+    {
+        Auth::guard('patient')->logout();
+        return redirect()->route('login.page');
+    }
 }
