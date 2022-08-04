@@ -14,6 +14,8 @@ Route::get('/patient-register', [ FrontendController::class, 'showPatientRegiste
 Route::get('/patient-dashboard', [ FrontendController::class, 'showPatientDashboardPage'])->name('patient.dash.page');
 //Patient Auth Controller[ For Patient Register Page]
 Route::post('/patient-register', [ PatientAuthController::class, 'register'])->name('patient.register');
+//Patient Auth Controller[ For Patient login Page]
+Route::post('/patient-login', [ PatientAuthController::class, 'login'])->name('patient.login');
 
 
 

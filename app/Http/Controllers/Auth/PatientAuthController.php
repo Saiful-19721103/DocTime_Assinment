@@ -32,7 +32,29 @@ class PatientAuthController extends Controller
             'mobile'    =>$request->mobile,
             'password'  =>password_hash($request->pass, PASSWORD_DEFAULT),
         ]);
-        return redirect()->route('patient.reg.page')->with('success', "Hi". $patient->name .", Your account is ready.  Now Login");
+        return redirect()->route('patient.reg.page')->with('success', "Hi ". $patient->name .", Your account is ready.  Now Login");
         
     }
+
+
+    /**
+     * Patient Login
+     */
+    public function login(Request $request)
+    {
+        //return $request->all();
+
+        //Data validate
+        $this->validate($request, [
+            'email'     =>'required',
+            'mobile'    =>'',
+            'password'  =>'required',
+
+        ]);
+
+        return $request->all();
+
+        
+    }
+    
 }
