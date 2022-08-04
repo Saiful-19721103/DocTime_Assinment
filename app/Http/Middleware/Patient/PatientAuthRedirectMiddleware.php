@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PatientAuthMiddleware
+class PatientAuthRedirectMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,13 +17,9 @@ class PatientAuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        //For Check
-        //echo "I am from Patient Middleware";
         if(Auth::guard('patient')->check()){
-            return $next($request);
-            
+            return redirect()->route('patient.dash.page');
         }
-        
-        return redirect()->route('login.page')->with ('warning', 'Please Ensure You are Logedin' );
+        return $next($request);
     }
 }
