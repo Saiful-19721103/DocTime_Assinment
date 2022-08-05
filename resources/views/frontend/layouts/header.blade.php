@@ -85,7 +85,8 @@
 								<a href="login.html">Login / Signup</a>
 							</li>
 						</ul>		 
-					</div>		 
+					</div>
+					<!-- Hospital & Contact Number-->	 
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
 							<div class="header-contact-img">
@@ -96,10 +97,44 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
+						<!-- Hospital & Contact Number-->
+
+						<!--Login/SignUp Button In Header-->
+						@if (!Auth::guard('patient')->check() )
 						<li class="nav-item">
 							<a class="nav-link header-login" href="{{ route('login.page') }}">login / Signup </a>
 						</li>
+						@endif
+						<!--Login/SignUp Button End-->
+
+						<!--User Menue Start[Will Show When Log In]-->
+						@if (Auth::guard('patient')->check() )
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+								<span class="user-img">
+									<img class="rounded-circle" src="https://www.w3schools.com/howto/img_avatar2.png" width="31" alt="Darren Elder">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="https://www.w3schools.com/howto/img_avatar2.png" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>"{{ Auth::guard('patient')->user()->name }}"</h6>
+										<p class="text-muted mb-0">"{{ Auth::guard('patient')->user()->mobile }}"</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>
+								<a class="dropdown-item" href="doctor-profile-settings.html">Profile Settings</a>
+								<a class="dropdown-item" href="{{route('patient.logout')}}">Logout</a>
+							</div>
+						</li>
+						@endif
+						<!--User Menue End-->
+
 					</ul>
+					<!--Login/SignUp Button and Usermenue-->
 				</nav>
 </header>
 <!-- /Header -->
