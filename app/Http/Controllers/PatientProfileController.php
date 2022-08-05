@@ -13,4 +13,12 @@ class PatientProfileController extends Controller
     {
         return view('frontend.patient.settings');
     }
+
+    /**
+     * Show patient Password Page
+     */
+    public function showPatientPasswordPage()
+    {
+        return view('frontend.patient.password');
+    }
 }

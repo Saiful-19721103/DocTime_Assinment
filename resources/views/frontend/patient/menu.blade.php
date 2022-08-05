@@ -27,7 +27,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="change-password.html">
+												<a href="{{route('patient.password.page')}}">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
 												</a>
