@@ -46,7 +46,10 @@
 												</div>
 												<div class="form-group">
 													<label>New Password</label>
-													<input name="pass" type="password" class="form-control">
+													<input id="new_pass" name="pass" type="password" class="form-control">
+                                                    <label>
+                                                        <input id="show_pass" type="checkbox"> Show Password
+                                                    </label>
 												</div>
 												<div class="form-group">
 													<label>Confirm Password</label>
