@@ -3,9 +3,17 @@
 							<div class="profile-sidebar">
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
+
+										<!--Profile Picture Upload-->
 										<a href="#" class="booking-doc-img">
+											@if(!Auth::guard('patient')->user()->photo)
 											<img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png" alt="User Image">
+											@else
+											<img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png" alt="User Image">
+											@endif
 										</a>
+										<!--Profile Picture Upload-->
+
 										<div class="profile-det-info">
 											<h3>{{Auth::guard('patient')->user()->name}}</h3>
 											<div class="patient-details">
