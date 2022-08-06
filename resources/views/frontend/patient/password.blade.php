@@ -57,20 +57,24 @@
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-12 col-lg-6">
+
+                                        @include('validate')
 										
 											<!-- Change Password Form -->
-											<form>
+											<form action="{{route('patient.password.change')}}" method="POST" >
+                                                @csrf
+
 												<div class="form-group">
 													<label>Old Password</label>
-													<input type="password" class="form-control">
+													<input name="old_pass" type="password" class="form-control">
 												</div>
 												<div class="form-group">
 													<label>New Password</label>
-													<input type="password" class="form-control">
+													<input name="pass" type="password" class="form-control">
 												</div>
 												<div class="form-group">
 													<label>Confirm Password</label>
-													<input type="password" class="form-control">
+													<input name="pass_confirmation" type="password" class="form-control">
 												</div>
 												<div class="submit-section">
 													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>

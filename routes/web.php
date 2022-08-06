@@ -24,8 +24,10 @@ Route::get('/patient-logout', [ PatientAuthController::class, 'logout'])->name('
 
 //Patient Profile Controller[ For Patient Profile Settings Page]
 Route::get('/patient-settings', [ PatientProfileController::class, 'showPatientSettingsPage'])->name('patient.settings.page')->middleware('patient');
-//Patient Profile Controller[ For Patient Password Change Page]
+//Patient Profile Controller[ For Patient Password Change Page  Viewing]
 Route::get('/patient-password', [ PatientProfileController::class, 'showPatientPasswordPage'])->name('patient.password.page')->middleware('patient');
+//Patient Profile Controller[ For Patient Password Change Page from Old Pass by {New and Confirm Password}]
+Route::post('/patient-password', [ PatientProfileController::class, 'PatientPasswordChange'])->name('patient.password.change')->middleware('patient');
 
 
 //Frontend Controller[ For Doctor Register and dashboard Page]
