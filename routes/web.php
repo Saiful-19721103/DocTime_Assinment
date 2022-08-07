@@ -22,6 +22,9 @@ Route::post('/patient-login', [ PatientAuthController::class, 'login'])->name('p
 //Patient Auth Controller[ For Patient logOut Page]
 Route::get('/patient-logout', [ PatientAuthController::class, 'logout'])->name('patient.logout');
 
+//Patient Auth Controller[ For Patient Account Activation]
+Route::get('/patient_account_activation/{token?}', [ PatientAuthController::class, 'patientAccountActivation'])->name('patient.account.activation');
+
 //Patient Profile Controller[ For Patient Profile Settings Page]
 Route::get('/patient-settings', [ PatientProfileController::class, 'showPatientSettingsPage'])->name('patient.settings.page')->middleware('patient');
 //Patient Profile Controller[ For Patient Password Change Page  Viewing]
