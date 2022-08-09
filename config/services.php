@@ -36,9 +36,9 @@ return [
      */
 
     'Facebook' => [
-        'client_id' => env(''),
-        'client_secret' => env(''),
-        'redirect' => 'http://example.com/callback-url',
+        'client_id' => env('777728776730694'),
+        'client_secret' => env('a142902e5cf2b70838ee5830dbf24115'),
+        'redirect' => 'http://localhost:8000/facebook-login-system',
     ],
 
     'github' => [

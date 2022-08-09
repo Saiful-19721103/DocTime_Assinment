@@ -36,3 +36,7 @@ Route::post('/patient-password', [ PatientProfileController::class, 'PatientPass
 //Frontend Controller[ For Doctor Register and dashboard Page]
 Route::get('/doctor-register', [ FrontendController::class, 'showDoctorRegisterPage'])->name('doctor.reg.page');
 Route::get('/doctor-dashboard', [ FrontendController::class, 'showDoctorDashboardPage'])->name('doctor.dash.page');
+
+//Social Login Controller [for facebook, Google, Github]
+Route::get('facebook-login-req', [SocialLoginController::class, 'sendFacebookLoginReq'])->name('fb.req');
+Route::get('facebook-login-system', [SocialLoginController::class, 'loginWithFacebook'])->name('fb.sys');
