@@ -62,17 +62,19 @@ class PatientAuthController extends Controller
 
         // check token(If token not match)
         if( $token ){
-            $patient_data = Patient::where('access_token', $token);
+            $patient_data = Patient::where('access_token', $token)->first();
 
-            $patient_data->update([
+            $patient_data->update([ 
                 'access_token'  =>NULL,
-                'Status'        =>true,
+                'status'        =>true,
+        
+                
             ]);
 
             if( $patient_data ){
                 return redirect()->route('login.page')->with('success', 'Hi' . $patient_data->name . 'Your account is Varifyed, Now Login');
             }else{
-                return redirect()->route('login.page')->with('warning', 'Access tokennot not Match');
+                return redirect()->route('login.page')->with('warning', 'Access token not Match');
             }
                     
         }
@@ -103,9 +105,19 @@ class PatientAuthController extends Controller
     //}
     
     //Login in Authentication and Authorization by email and mobile.
-    if(Auth::guard('patient')->attempt([ "email" => $request->email,"password"=>$request->password]) || Auth::guard('patient')->attempt([ "mobile" => $request->email,"password"=>$request->password]) )
-    {   
-    return redirect()->route('patient.dash.page');
+    if(Auth::guard('patient')->attempt([ "email" => $request->email,"password"=>$request->password])
+    || Auth::guard('patient')->attempt([ "mobile" => $request->email,"password"=>$request->password]) )
+    {
+        //After Actvation Login Check Starat
+        if( Auth::guard('patient')->user()->access_token == null && Auth::guard('patient')->user()->status == true){
+            return redirect()->route('patient.dash.page');
+        }else{
+            Auth::guard('patient')->logout();
+            return redirect()->route('login.page')->with('warning', 'Please Activate Your Account');
+        }    
+        //After Actvation Login Check End 
+        
+    //return redirect()->route('patient.dash.page'); Without activation Login
     }else{
     return redirect()->route('login.page')->with('danger', 'Authentication Failed');
     }
